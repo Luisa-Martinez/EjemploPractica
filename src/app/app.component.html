@@ -1,0 +1,187 @@
+<div class="container app">
+    <div class="row"> 
+      <div class="col-sm-8">
+        <h1 class="text-center">
+          {{title}}
+        </h1>
+      </div>
+      <div class="col-sm-4">
+        <div class="alert alert-success alert-dismissable" *ngIf="msg">
+          <a href="#" class="close" (click)="closeAlert()">
+            &times;
+          </a>
+          {{msg}}
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4">
+        <img width="300" src="https://image.flaticon.com/icons/png/512/54/54590.png" />
+      </div>
+
+      <div class="col-sm-8">
+        <h2>Guarda Tus Canciones Favoritas:</h2><br><br>
+        <form class="form-horizontal">
+          <div class="form-group">
+
+            <label for="nombre" class="control-label col-sm-2">
+              Canción
+            </label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="nombre"
+                name="nombre" [(ngModel)]="model.nombre"
+                placeholder="Ingrese su nombre">
+            </div>
+          </div>
+
+          <div class="form-group">
+
+              <label for="apellido" class="control-label col-sm-2">
+                Artista
+              </label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="nombre"
+                  name="apellido" [(ngModel)]="model.apellido"
+                  placeholder="Ingrese su nombre">
+              </div>
+            </div>
+
+            <div class="form-group">
+
+                <label for="institucion" class="control-label col-sm-2">
+                  Album
+                </label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="institucion"
+                    name="institucion" [(ngModel)]="model.institucion"
+                    placeholder="Ingrese la institucion">
+                </div>
+              </div>
+          
+          <div class="form-group">
+            <label for="posicion" class="control-label col-sm-2">
+              Genero
+            </label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="position"
+                name="posicion" [(ngModel)]="model.posicion"
+                placeholder="Ingrese su Posicion">
+            </div>
+          </div>
+        
+         
+          
+          <div class="form-group">
+            <div class="col-sm-10 col-sm-offset-2">
+              <button type="submit" class="btn btn-success" (click)="addEmployee()">
+                Crear
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+<br><br>
+
+    <div class="row">
+      <div class="col-sm-8">
+        <h2>Tu Lista Actual </h2>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Canción</th>
+              <th>Artista</th>
+              <th>Album</th>
+              <th>Genero</th>
+              <th></th>
+            </tr>
+          </thead>
+          
+          <tbody>
+            <tr *ngFor="let employee of employees; let i = index">
+              <td>{{employee.nombre}}</td>
+              <td>{{employee.apellido}}</td>
+              <td>{{employee.institucion}}</td>
+              <td>{{employee.posicion}}</td>
+              
+              
+              <td>
+                <a (click)="editEmployee(i)" class="btn btn-success">
+                  Editar
+                </a>
+
+                <a (click)="deleteEmployee(i)" class="btn btn-danger">
+                  Eliminar
+                </a>
+              </td>
+            </tr>
+  
+          </tbody>
+        </table>
+      </div>
+      
+      <div class="col-sm-4">
+        <h2>Actualizar Lista</h2>
+        <form class="form-horizontal">
+            <div class="form-group">
+
+                <label for="nombre" class="control-label col-sm-2">
+                    Canción
+                </label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="nombre"
+                    name="nombre" [(ngModel)]="model.nombre"
+                    placeholder="Ingrese su nombre">
+                </div>
+              </div>
+    
+              <div class="form-group">
+    
+                  <label for="apellido" class="control-label col-sm-2">
+                    Artista
+                  </label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="nombre"
+                      name="apellido" [(ngModel)]="model.apellido"
+                      placeholder="Ingrese su nombre">
+                  </div>
+                </div>
+    
+                <div class="form-group">
+    
+                    <label for="institucion" class="control-label col-sm-2">
+                      Album
+                    </label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="institucion"
+                        name="institucion" [(ngModel)]="model.institucion"
+                        placeholder="Ingrese la institucion">
+                    </div>
+                  </div>
+              
+              <div class="form-group">
+                <label for="posicion" class="control-label col-sm-2">
+                  Genero
+                </label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="posicion"
+                    name="posicion" [(ngModel)]="model.posicion"
+                    placeholder="Ingrese su Posicion">
+                </div>
+              </div>
+          
+          <div class="form-group">
+            <div class="col-sm-10 col-sm-offset-2">
+              <button type="submit" class="btn btn-success" (click)="updateEmployee()">
+                Actualizar
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+    
+  
+ 
